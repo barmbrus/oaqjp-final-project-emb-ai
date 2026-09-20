@@ -1,0 +1,19 @@
+from flask import Flask, request, render_template
+from . import emotion_detector
+
+app = Flask(__name__)
+
+@app.route("/")
+def index():
+    return render_template('index.html')
+
+@app.route('/emotionDetector', methods=["GET"])
+def emotion_detector_get():
+    text_to_analyze = request.args['textToAnalyze']
+    
+    res = emotion_detector(text_to_analyze)
+
+    if res["dominant_emotion"] is None:
+        return "Invalid text! Please try again!"
+        
+    return res
