@@ -22,3 +22,7 @@ def emotion_detector_get():
         return "Invalid text! Please try again!"
 
     return res
+
+
+if __name__ == "__main__":
+    app.run()
