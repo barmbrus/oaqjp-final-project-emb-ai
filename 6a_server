@@ -12,3 +12,6 @@ def emotion_detector_get():
     text_to_analyze = request.args['textToAnalyze']
     
     return emotion_detector(text_to_analyze)
+
+if __name__ == "__main__":
+    app.run()
